@@ -21,7 +21,7 @@ class MelonType(object):
     def add_pairing(self, *pairing):
         """Add a food pairing to the instance's pairings list."""
 
-        self.pairings.append(pairing)
+        self.pairings.extend(pairing)
 
 
     def update_code(self, new_code):
@@ -74,7 +74,7 @@ melon_types = make_melon_types()
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
-
+    
     for melon in melon_types:
         print(f"{melon.name} pairs with {melon.pairings}")
 
@@ -83,8 +83,8 @@ def make_melon_type_lookup(melon_types):
 
     melon_dict = {}
 
-    for i, melon in enumerate(melon_types):
-        melon_dict[melon.code] = melon_types[i]
+    for melon in melon_types:
+        melon_dict[melon.code] = melon
 
     return melon_dict
     
