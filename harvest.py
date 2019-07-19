@@ -102,12 +102,28 @@ class Melon(object):
         self.field = field
         self.name = name
 
+    # def is_sellable(self):
+    #     if (self.shaping_rating > 5
+    #             and self.color_rating > 5
+    #             and self.field != 3
+    #             ):
+    #         return "(CAN BE SOLD)"
+    #     else:
+    #         return "(NOT SELLABLE)"
+    # ----------------
+    # if do it this way without the decorator, call the method normal way w/closing
+    # parenthesis ex: self.is_sellable()
+
+
     # @property
     # def is_sellable(self):
     #     return (self.shaping_rating > 5
     #             and self.color_rating > 5
     #             and self.field != 3
     #             )
+    # ---------------
+    # returning BOOL, errors get_sellability_report FN
+
 
     @property
     def is_sellable(self):
@@ -118,6 +134,9 @@ class Melon(object):
             return "(CAN BE SOLD)"
         else:
             return "(NOT SELLABLE)"
+    # ---------------
+    # @property DECORATOR changes the method call, so cannot use closing parenthesis
+    # ex: self.is_sellable vs self.is_sellable()
 
 
 def make_melons(melon_types):
