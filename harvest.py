@@ -74,7 +74,7 @@ melon_types = make_melon_types()
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
-    
+
     for melon in melon_types:
         print(f"{melon.name} pairs with {melon.pairings}")
 
@@ -94,9 +94,20 @@ def make_melon_type_lookup(melon_types):
 
 class Melon(object):
     """A melon in a melon harvest."""
+    def __init__(self, melon_type, shaping_rating, color_rating, field, name):
+        # initializing
+        self.melon_type = melon_type
+        self.shaping_rating = shaping_rating
+        self.color_rating = color_rating
+        self.field = field
+        self.name = name
 
-    # Fill in the rest
-    # Needs __init__ and is_sellable methods
+    @property
+    def is_sellable(self):
+        return (self.shaping_rating > 5
+                and self.color_rating > 5
+                and self.field != 3
+                )
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
